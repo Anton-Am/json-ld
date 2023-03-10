@@ -8,6 +8,7 @@
     "structured-data"
   ],
   "license": "BSD-2-Clause",
+  "version": "1.0.0",
   "authors": [
     {
       "name": "Daniel Stainback",

@@ -1,10 +1,16 @@
 # JSON-LD Generator
 
+[![Latest Stable Version](http://poser.pugx.org/anton-am/json-ld/v)](https://packagist.org/packages/anton-am/json-ld) 
+[![Total Downloads](http://poser.pugx.org/anton-am/json-ld/downloads)](https://packagist.org/packages/anton-am/json-ld) 
+[![Latest Unstable Version](http://poser.pugx.org/anton-am/json-ld/v/unstable)](https://packagist.org/packages/anton-am/json-ld) 
+[![License](http://poser.pugx.org/anton-am/json-ld/license)](https://packagist.org/packages/anton-am/json-ld) 
+[![PHP Version Require](http://poser.pugx.org/anton-am/json-ld/require/php)](https://packagist.org/packages/anton-am/json-ld)
+
 Extremely simple JSON-LD generator.
 
 ## Installation
 
-- [JSON-LD Generator on Packagist](https://packagist.org/packages/torann/json-ld)
+- [JSON-LD Generator on Packagist](https://packagist.org/packages/Anton-Am/json-ld)
 - [JSON-LD Generator on GitHub](https://github.com/Anton-Am/json-ld)
 
 From the command line run
@@ -21,47 +27,47 @@ $ composer require anton-am/json-ld
  - `getProperties()`
  - `generate()`
 
-## Context Types
+## Context Type Classes
 
-- article
-- audiobook
-- beach
-- blog_posting
-- book
-- breadcrumb_list
-- contact_point
-- corporation
-- creative_work
-- duration
-- event
-- geo_coordinates
-- image_object
-- invoice
-- list_item
-- local_business
-- media_object
-- music_album
-- music_group
-- music_playlist
-- music_recording
-- news_article
-- offer
-- order
-- organization
-- person
-- place
-- postal_address
-- price_specification
-- product
-- rating
-- recipe
-- review
-- sculpture
-- search_box
-- thing
-- video_object
-- web_page
-- web_site
+- Article
+- Audiobook
+- Beach
+- BlogPosting
+- Book
+- BreadcrumbList
+- ContactPoint
+- Corporation
+- CreativeWork
+- Duration
+- Event
+- GeoCoordinates
+- ImageObject
+- Invoice
+- ListItem
+- LocalBusiness
+- MediaObject
+- MusicAlbum
+- MusicGroup
+- MusicPlaylist
+- MusicRecording
+- NewsArticle
+- Offer
+- Order
+- Organization
+- Person
+- Place
+- PostalAddress
+- PriceSpecification
+- Product
+- Rating
+- Recipe
+- Review
+- Sculpture
+- SearchBox
+- Thing
+- VideoObject
+- WebPage
+- WebSite
 
 ## Examples
 
@@ -70,7 +76,10 @@ $ composer require anton-am/json-ld
 #### Business
 
 ```php
-$context = \AntonAm\JsonLD\Context::create('local_business', [
+use AntonAm\JsonLD\Context;
+use AntonAm\JsonLD\ContextTypes\LocalBusiness;
+
+$context = Context::create(LocalBusiness::class, [
     'name' => 'Consectetur Adipiscing',
     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
     'telephone' => '555-555-5555',
@@ -93,7 +102,10 @@ echo $context; // Will output the script tag
 ### News Article
 
 ```php
-$context = \AntonAm\JsonLD\Context::create('news_article', [
+use AntonAm\JsonLD\Context;
+use AntonAm\JsonLD\ContextTypes\NewsArticle;
+
+$context = Context::create(NewsArticle::class, [
     'headline' => 'Article headline',
     'description' => 'A most wonderful article',
     'mainEntityOfPage' => [
@@ -134,6 +146,7 @@ Even though this example shows using the JSON-LD inside of a `Laracasts\Presente
 namespace App\Presenters;
 
 use AntonAm\JsonLD\Context;
+use AntonAm\JsonLD\ContextTypes\LocalBusiness;
 use Laracasts\Presenter\Presenter;
 
 class BusinessPresenter extends Presenter
@@ -145,7 +158,7 @@ class BusinessPresenter extends Presenter
      */
     public function jsonLd()
     {
-        return Context::create('local_business', [
+        return Context::create(LocalBusiness::class, [
             'name' => $this->entity->name,
             'description' => $this->entity->description,
             'telephone' => $this->entity->telephone,
@@ -209,7 +222,10 @@ class FooBar extends AbstractContext
 ```
 
 ```php
-$context = \AntonAm\JsonLD\Context::create(\App\JsonLD\FooBar::class, [
+use AntonAm\JsonLD\Context;
+use App\JsonLD\FooBar;
+
+$context = Context::create(FooBar::class, [
     'name' => 'Foo Foo headline',
     'description' => 'Bar bar article description',
     'url' => 'http://google.com',

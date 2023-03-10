@@ -5,7 +5,10 @@ With Google Sitelinks search box, from search results. Search users sometimes us
 ## Example
 
 ```php
-$context = \AntonAm\JsonLD\Context::create('search_box', [
+use AntonAm\JsonLD\Context;
+use AntonAm\JsonLD\ContextTypes\SearchBox;
+
+$context = Context::create(SearchBox::class, [
     'url' => 'https://www.example.com/',
     'potentialAction' => [
         'target' => 'https://query.example.com/search?q={search_term_string}',

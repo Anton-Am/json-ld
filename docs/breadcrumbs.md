@@ -5,7 +5,10 @@ Breadcrumb trails on a page indicate the page's position in the site hierarchy. 
 ## Example
 
 ```php
-$context = \AntonAm\JsonLD\Context::create('breadcrumb_list', [
+use AntonAm\JsonLD\Context;
+use AntonAm\JsonLD\ContextTypes\BreadcrumbList;
+
+$context = Context::create(BreadcrumbList::class, [
     'itemListElement' => [
         [
             'url' => 'https://example.com/arts',
