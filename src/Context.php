@@ -25,7 +25,12 @@ class Context
     {
         $class = $this->getContextTypeClass($context);
 
-        $this->context = new $class($data);
+        $entity = new $class($data);
+        if (!is_a($entity, AbstractContext::class)) {
+            throw new InvalidArgumentException(sprintf('Unknown context type: "%s"', $context));
+        }
+
+        $this->context = $entity;
     }
 
     /**
@@ -47,7 +52,9 @@ class Context
      */
     public function getProperties(): array
     {
-        return array_filter($this->context->getProperties());
+        return array_filter($this->context->getProperties(), static function($v) {
+            return !(is_null($v) or '' === $v);
+        });
     }
 
     /**
@@ -74,7 +81,7 @@ class Context
     protected function getContextTypeClass(string $name): ?string
     {
         // Check for custom context type
-        if (class_exists($name) && is_a(new $name, AbstractContext::class)) {
+        if (class_exists($name)) {
             return $name;
         }
 

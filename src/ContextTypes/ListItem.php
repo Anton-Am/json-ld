@@ -14,20 +14,19 @@ class ListItem extends Thing
      */
     protected $structure = [
         'position' => null,
-        'item' => null,
+        'item'     => null,
     ];
 
     /**
      * Set item in list.
      *
      * @param array $item
-     *
      * @return array
      */
     protected function setItemAttribute(array $item): array
     {
         return [
-            '@id' => $this->getArrValue($item, 'url'),
+            '@id'  => $this->getArrValue($item, 'url'),
             'name' => $this->getArrValue($item, 'name')
         ];
     }

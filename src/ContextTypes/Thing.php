@@ -13,19 +13,19 @@ class Thing extends AbstractContext
      * @var array
      */
     protected $structure = [
-        'alternateName' => null,
-        'description' => null,
-        'image' => ImageObject::class,
+        'alternateName'    => null,
+        'description'      => null,
+        'image'            => ImageObject::class,
         'mainEntityOfPage' => WebPage::class,
-        'sameAs' => null,
-        'url' => null,
+        'sameAs'           => null,
+        'url'              => null,
+        'identifier'       => PropertyValue::class
     ];
 
     /**
      * Set type attribute.
      *
      * @param string $type
-     *
      * @return string
      */
     protected function setTypeAttribute(string $type): string

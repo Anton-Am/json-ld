@@ -13,12 +13,12 @@ class Article extends CreativeWork
      * @var array
      */
     protected $structure = [
-        'articleBody' => null,
+        'articleBody'    => null,
         'articleSection' => null,
-        'pageEnd' => null,
-        'pageStart' => null,
-        'pagination' => null,
-        'wordCount' => null,
+        'pageEnd'        => null,
+        'pageStart'      => null,
+        'pagination'     => null,
+        'wordCount'      => null,
     ];
 
     /**
@@ -33,7 +33,6 @@ class Article extends CreativeWork
      * Set the description attribute.
      *
      * @param string $text
-     *
      * @return string
      */
     protected function setDescriptionAttribute(string $text): string
@@ -45,7 +44,6 @@ class Article extends CreativeWork
      * Set the article body attribute.
      *
      * @param string $text
-     *
      * @return string
      */
     protected function setArticleBodyAttribute(string $text): string

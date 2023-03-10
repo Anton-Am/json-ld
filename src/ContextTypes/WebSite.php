@@ -12,5 +12,7 @@ class WebSite extends CreativeWork
      *
      * @var array
      */
-    protected $structure = [];
+    protected $structure = [
+        'potentialAction' => SearchAction::class
+    ];
 }

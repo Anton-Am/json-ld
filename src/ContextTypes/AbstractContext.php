@@ -66,7 +66,7 @@ abstract class AbstractContext implements ContextTypeInterface
      *
      * @param array $attributes
      */
-    public function fill(array $attributes)
+    public function fill(array $attributes): void
     {
         // Some context types have varying types
         if ($this->hasGetMutator('type')) {
@@ -77,7 +77,7 @@ abstract class AbstractContext implements ContextTypeInterface
 
         // Set properties
         $properties = array_merge([
-            '@context' => 'http://schema.org',
+            '@context' => 'https://schema.org',
             '@type'    => $this->type,
             'sameAs'   => null
         ], $this->structure);
@@ -170,7 +170,7 @@ abstract class AbstractContext implements ContextTypeInterface
                 $nested_context = $this->getNestedContext($property, $value);
             } else {
                 // Process multi dimensional array
-                $nested_context = array_map(function ($item) use ($property) {
+                $nested_context = array_map(function($item) use ($property) {
                     return $this->getNestedContext($property, $item);
                 }, $value);
             }
@@ -224,7 +224,7 @@ abstract class AbstractContext implements ContextTypeInterface
      */
     protected function filterNestedContext(array $properties = []): array
     {
-        return array_filter($properties, function ($value, $key) {
+        return array_filter($properties, function($value, $key) {
             return ($value && $key !== '@context');
         }, ARRAY_FILTER_USE_BOTH);
     }
@@ -304,10 +304,8 @@ abstract class AbstractContext implements ContextTypeInterface
         }
 
         // Is $break present between $limit and the end of the string?
-        if (false !== ($breakpoint = strpos($string, $break, $limit))) {
-            if ($breakpoint < strlen($string) - 1) {
-                $string = substr($string, 0, $breakpoint) . $pad;
-            }
+        if ((false !== ($breakpoint = strpos($string, $break, $limit))) && $breakpoint < strlen($string) - 1) {
+            $string = substr($string, 0, $breakpoint) . $pad;
         }
 
         return $string;
@@ -317,29 +315,28 @@ abstract class AbstractContext implements ContextTypeInterface
      * Get an item from an array.
      *
      * @param array $array
-     * @param string $key
+     * @param ?string $key
      * @param mixed $default
      * @return mixed
      */
-    protected function getArrValue(array $array, string $key, $default = null)
+    protected function getArrValue(array $array, ?string $key, $default = null)
     {
         if (is_null($key)) {
             return $default;
         }
 
-        return isset($array[$key])
-            ? $array[$key]
-            : $default;
+        return $array[$key] ?? $default;
     }
+
 
     /**
      * Check if the values array has a key '@type' and if that contains an existing context
      *
      * @param array $value
-     * @param string|array $property
-     * @retrun bool
+     * @param $property
+     * @return bool
      */
-    protected function hasValidContext(array $value, $property)
+    protected function hasValidContext(array $value, $property): bool
     {
         if (array_key_exists('@type', $value)) {
             $class_name = __NAMESPACE__ . '\\' . $value['@type'];
@@ -348,7 +345,7 @@ abstract class AbstractContext implements ContextTypeInterface
                 $property = [$property];
             }
 
-            return (in_array($class_name, $property) && class_exists($class_name));
+            return (in_array($class_name, $property, false) && class_exists($class_name));
         }
 
         return false;

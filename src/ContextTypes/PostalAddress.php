@@ -13,10 +13,10 @@ class PostalAddress extends ContactPoint
      * @var array
      */
     protected $structure = [
-        'streetAddress' => '',
+        'streetAddress'   => '',
         'addressLocality' => '',
-        'addressRegion' => '',
-        'addressCountry' => '',
-        'postalCode' => '',
+        'addressRegion'   => '',
+        'addressCountry'  => '',
+        'postalCode'      => '',
     ];
 }

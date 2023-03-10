@@ -20,14 +20,10 @@ class WebPage extends CreativeWork
      * Set the canonical URL of the article page.
      *
      * @param string $url
-     *
-     * @return null
      */
-    protected function setUrlAttribute($url)
+    protected function setUrlAttribute($url): void
     {
         // The URL is used as an ID
         $this->properties['@id'] = $url;
-
-        return null;
     }
 }

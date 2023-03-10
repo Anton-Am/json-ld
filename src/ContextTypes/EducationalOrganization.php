@@ -3,9 +3,9 @@
 namespace AntonAm\JsonLD\ContextTypes;
 
 /**
- * https://schema.org/ImageObject
+ * https://schema.org/EducationalOrganization
  */
-class ImageObject extends MediaObject
+class EducationalOrganization extends Organization
 {
     /**
      * Property structure
@@ -13,7 +13,6 @@ class ImageObject extends MediaObject
      * @var array
      */
     protected $structure = [
-        'caption'   => null,
-        'thumbnail' => ImageObject::class,
+        'alumni' => Person::class,
     ];
 }

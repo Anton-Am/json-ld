@@ -3,9 +3,9 @@
 namespace AntonAm\JsonLD\ContextTypes;
 
 /**
- * https://schema.org/ImageObject
+ * https://schema.org/SearchAction
  */
-class ImageObject extends MediaObject
+class SearchAction extends Action
 {
     /**
      * Property structure
@@ -13,7 +13,7 @@ class ImageObject extends MediaObject
      * @var array
      */
     protected $structure = [
-        'caption'   => null,
-        'thumbnail' => ImageObject::class,
+        'query'       => null,
+        'query-input' => null
     ];
 }

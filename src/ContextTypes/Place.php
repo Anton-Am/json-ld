@@ -13,9 +13,9 @@ class Place extends Thing
      * @var array
      */
     protected $structure = [
-        'address' => PostalAddress::class,
-        'review' => Review::class,
+        'address'         => PostalAddress::class,
+        'review'          => Review::class,
         'aggregateRating' => AggregateRating::class,
-        'geo' => GeoCoordinates::class,
+        'geo'             => GeoCoordinates::class,
     ];
 }
