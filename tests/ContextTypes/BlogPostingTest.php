@@ -10,11 +10,11 @@ class BlogPostingTest extends TestCase
     protected $class = BlogPosting::class;
 
     protected $attributes = [
-        'name' => 'More than That',
-        'url' => 'https://google.com/1-article',
-        'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+        'name'          => 'More than That',
+        'url'           => 'https://google.com/1-article',
+        'description'   => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
         'sharedContent' => [
-            'url' => 'https://google.com/thumbnail1.jpg',
+            'url'  => 'https://google.com/thumbnail1.jpg',
             'name' => 'My Post',
         ],
     ];
@@ -38,8 +38,8 @@ class BlogPostingTest extends TestCase
 
         $this->assertEquals([
             '@type' => 'CreativeWork',
-            'name' => 'My Post',
-            'url' => 'https://google.com/thumbnail1.jpg',
+            'name'  => 'My Post',
+            'url'   => 'https://google.com/thumbnail1.jpg',
         ], $context->getProperty('sharedContent'));
     }
 }

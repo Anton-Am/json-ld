@@ -10,26 +10,26 @@ class WebSiteTest extends TestCase
     protected $class = WebSite::class;
 
     protected $attributes = [
-        'about' => 'The subject matter of the content.',
-        'headline' => 'Headline of the website.',
-        'image' => 'https://og.github.com/mark/github-mark@1200x630.png',
-        'name' => 'The name of the item.',
-        'url' => 'https://schema.org/WebSite',
-        'publisher' => [
+        'about'         => 'The subject matter of the content.',
+        'headline'      => 'Headline of the website.',
+        'image'         => 'https://og.github.com/mark/github-mark@1200x630.png',
+        'name'          => 'The name of the item.',
+        'url'           => 'https://schema.org/WebSite',
+        'publisher'     => [
             'name' => 'Google',
             'logo' => [
-                '@type' => 'ImageObject',
-                'url' => 'https://google.com/logo.jpg',
-                'width' => 600,
+                '@type'  => 'ImageObject',
+                'url'    => 'https://google.com/logo.jpg',
+                'width'  => 600,
                 'height' => 60,
             ]
         ],
-        'keywords' => 'about,headline,image,name,url',
-        'inLanguage' => 'en',
-        'dateCreated' => '2013-10-04T00:00',
-        'dateModified' => '2013-10-04T00:00',
+        'keywords'      => 'about,headline,image,name,url',
+        'inLanguage'    => 'en',
+        'dateCreated'   => '2013-10-04T00:00',
+        'dateModified'  => '2013-10-04T00:00',
         'datePublished' => '2013-10-04T00:00',
-        'sameAs' => 'https://schema.org/sameAs',
+        'sameAs'        => 'https://schema.org/sameAs',
     ];
 
     /**
@@ -40,23 +40,23 @@ class WebSiteTest extends TestCase
         $context = $this->make();
 
         $attributesPlus = array_merge([
-            '@context' => 'http://schema.org',
-            '@type' => 'WebSite',
-            'aggregateRating'    => '',
-            'alternativeHeadline' => '',
-            'author' => '',
-            'comment' => '',
-            'commentCount' => '',
-            'creator' => '',
+            '@context'             => 'http://schema.org',
+            '@type'                => 'WebSite',
+            'aggregateRating'      => '',
+            'alternativeHeadline'  => '',
+            'author'               => '',
+            'comment'              => '',
+            'commentCount'         => '',
+            'creator'              => '',
             'learningResourceType' => '',
-            'mainEntity' => '',
-            'review' => '',
-            'text' => '',
-            'thumbnailUrl' => '',
-            'video' => '',
-            'alternateName' => '',
-            'description' => '',
-            'mainEntityOfPage' => '',
+            'mainEntity'           => '',
+            'review'               => '',
+            'text'                 => '',
+            'thumbnailUrl'         => '',
+            'video'                => '',
+            'alternateName'        => '',
+            'description'          => '',
+            'mainEntityOfPage'     => '',
         ], $this->attributes);
 
         $attributesPlus["publisher"]["@type"] = 'Organization';
@@ -83,12 +83,12 @@ class WebSiteTest extends TestCase
 
         $this->assertEquals([
             '@type' => 'Organization',
-            'name' => 'Google',
-            'logo' => [
-                '@type' => 'ImageObject',
-                'url' => 'https://google.com/logo.jpg',
+            'name'  => 'Google',
+            'logo'  => [
+                '@type'  => 'ImageObject',
+                'url'    => 'https://google.com/logo.jpg',
                 'height' => 60,
-                'width' => 600,
+                'width'  => 600,
             ],
         ], $context->getProperty('publisher'));
     }

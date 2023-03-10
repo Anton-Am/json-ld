@@ -10,43 +10,43 @@ class PersonTest extends TestCase
     protected $class = Person::class;
 
     protected $attributes = [
-        'name' => 'Anonymous tester',
-        'description' => 'a man in the middle',
+        'name'             => 'Anonymous tester',
+        'description'      => 'a man in the middle',
         'mainEntityOfPage' => [
             'url' => 'https://example.com/anonymous.html'
         ],
-        'image' => [
-            'url' => 'https://google.com/Doctor.jpg',
+        'image'            => [
+            'url'    => 'https://google.com/Doctor.jpg',
             'height' => 800,
-            'width' => 800
+            'width'  => 800
         ],
-        'additionalName' => 'phpUnit hacker',
-        'address' => [
+        'additionalName'   => 'phpUnit hacker',
+        'address'          => [
             'addressLocality' => 'Paris',
-            'addressCountry' => 'France'
+            'addressCountry'  => 'France'
         ],
-        'award' => 'phpUnit Excellence',
-        'birthDate' => '1943-10-04T00:00',
-        'birthPlace' => ['name' => 'Paris'],
-        'deathDate' => '2013-10-04T00:00',
-        'deathPlace' => ['name' => 'London'],
-        'email' => 'toto@yoyo.fr',
-        'familyName' => 'Dupondt',
-        'faxNumber' => '0000000000',
-        'follows' => ['name' => 'strange follower'],
-        'givenName' => 'Doctor',
-        'homeLocation' => [
-            'name' => 'Fluff Hut',
+        'award'            => 'phpUnit Excellence',
+        'birthDate'        => '1943-10-04T00:00',
+        'birthPlace'       => ['name' => 'Paris'],
+        'deathDate'        => '2013-10-04T00:00',
+        'deathPlace'       => ['name' => 'London'],
+        'email'            => 'toto@yoyo.fr',
+        'familyName'       => 'Dupondt',
+        'faxNumber'        => '0000000000',
+        'follows'          => ['name' => 'strange follower'],
+        'givenName'        => 'Doctor',
+        'homeLocation'     => [
+            'name'    => 'Fluff Hut',
             'address' => [
-                'streetAddress' => '112 Apple St.',
+                'streetAddress'   => '112 Apple St.',
                 'addressLocality' => 'Hamden',
-                'addressRegion' => 'CT',
-                'postalCode' => '06514',
+                'addressRegion'   => 'CT',
+                'postalCode'      => '06514',
             ],
         ],
-        'jobTitle' => 'tester',
-        'parent' => ['name' => 'daddy'],
-        'telephone' => '+330102030405'
+        'jobTitle'         => 'tester',
+        'parent'           => ['name' => 'daddy'],
+        'telephone'        => '+330102030405'
 
     ];
 
@@ -61,17 +61,17 @@ class PersonTest extends TestCase
             'mainEntityOfPage',
             [
                 '@type' => 'WebPage',
-                '@id' => 'https://example.com/anonymous.html',
+                '@id'   => 'https://example.com/anonymous.html',
             ]
         );
 
         $this->assertPropertyEquals(
             'image',
             [
-                '@type' => 'ImageObject',
-                'url' => 'https://google.com/Doctor.jpg',
+                '@type'  => 'ImageObject',
+                'url'    => 'https://google.com/Doctor.jpg',
                 'height' => 800,
-                'width' => 800,
+                'width'  => 800,
             ]
         );
 
@@ -80,9 +80,9 @@ class PersonTest extends TestCase
         $this->assertPropertyEquals(
             'address',
             [
-                '@type' => 'PostalAddress',
+                '@type'           => 'PostalAddress',
                 'addressLocality' => 'Paris',
-                'addressCountry' => 'France'
+                'addressCountry'  => 'France'
             ]
         );
 
@@ -94,7 +94,7 @@ class PersonTest extends TestCase
             'birthPlace',
             [
                 '@type' => 'Place',
-                'name' => 'Paris',
+                'name'  => 'Paris',
             ]
         );
 
@@ -104,7 +104,7 @@ class PersonTest extends TestCase
             'deathPlace',
             [
                 '@type' => 'Place',
-                'name' => 'London',
+                'name'  => 'London',
             ]
         );
 
@@ -118,7 +118,7 @@ class PersonTest extends TestCase
             'follows',
             [
                 '@type' => 'Person',
-                'name' => 'strange follower'
+                'name'  => 'strange follower'
             ]
         );
 
@@ -127,14 +127,14 @@ class PersonTest extends TestCase
         $this->assertPropertyEquals(
             'homeLocation',
             [
-                '@type' => 'Place',
-                'name' => 'Fluff Hut',
+                '@type'   => 'Place',
+                'name'    => 'Fluff Hut',
                 'address' => [
-                    '@type' => 'PostalAddress',
-                    'streetAddress' => '112 Apple St.',
+                    '@type'           => 'PostalAddress',
+                    'streetAddress'   => '112 Apple St.',
                     'addressLocality' => 'Hamden',
-                    'addressRegion' => 'CT',
-                    'postalCode' => '06514',
+                    'addressRegion'   => 'CT',
+                    'postalCode'      => '06514',
                 ],
             ]
         );
@@ -145,7 +145,7 @@ class PersonTest extends TestCase
             'parent',
             [
                 '@type' => 'Person',
-                'name' => 'daddy'
+                'name'  => 'daddy'
             ]
         );
 

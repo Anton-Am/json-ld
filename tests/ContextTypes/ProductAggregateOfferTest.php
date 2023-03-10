@@ -10,45 +10,45 @@ class ProductAggregateOfferTest extends TestCase
     protected $class = Product::class;
 
     protected $attributes = [
-        'name' => 'Executive Anvil',
-        'category' => 'Droppables / Anvils',
-        'model' => 'Acme Exec. Anvil',
-        'image' => 'http://www.example.com/anvil_executive.jpg',
-        'description' => 'Sleeker than ACME\u0027s Classic Anvil, the Executive Anvil is perfect for the business traveler looking for something to drop from a height.',
-        'sku' => '925872',
-        'brand' => 'Acme Inc.',
+        'name'            => 'Executive Anvil',
+        'category'        => 'Droppables / Anvils',
+        'model'           => 'Acme Exec. Anvil',
+        'image'           => 'http://www.example.com/anvil_executive.jpg',
+        'description'     => 'Sleeker than ACME\u0027s Classic Anvil, the Executive Anvil is perfect for the business traveler looking for something to drop from a height.',
+        'sku'             => '925872',
+        'brand'           => 'Acme Inc.',
         'aggregateRating' => [
             'ratingValue' => '4.4',
             'reviewCount' => '89',
         ],
-        'offers' => [
-            '@type' => 'AggregateOffer',
-            'offerCount' => '3',
-            'lowPrice' => '109.99',
-            'highPrice' => '129.99',
-            'priceCurrency' => 'USD',
+        'offers'          => [
+            '@type'           => 'AggregateOffer',
+            'offerCount'      => '3',
+            'lowPrice'        => '109.99',
+            'highPrice'       => '129.99',
+            'priceCurrency'   => 'USD',
             'priceValidUntil' => '2020-11-05',
-            'itemCondition' => 'http://schema.org/UsedCondition',
-            'availability' => 'http://schema.org/InStock',
+            'itemCondition'   => 'http://schema.org/UsedCondition',
+            'availability'    => 'http://schema.org/InStock',
         ],
-        'isSimilarTo' => [
+        'isSimilarTo'     => [
             [
-                '@type' => 'Product',
-                'name' => 'Lorem ipsum dolor sit amet.',
-                'category' => 'Vestibulum / Duis',
-                'model' => 'Quisque at tortor',
-                'image' => 'http://www.example.com/lorem_ipsum.jpg',
+                '@type'       => 'Product',
+                'name'        => 'Lorem ipsum dolor sit amet.',
+                'category'    => 'Vestibulum / Duis',
+                'model'       => 'Quisque at tortor',
+                'image'       => 'http://www.example.com/lorem_ipsum.jpg',
                 'description' => 'Nulla vestibulum augue turpis, a vehicula diam ultrices vitae. Vivamus suscipit id neque ac venenatis. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
-                'sku' => '925379',
+                'sku'         => '925379',
             ],
             [
-                '@type' => 'Product',
-                'name' => 'Donec lorem metus, bibendum ut lacus et, bibendum luctus arcu.',
-                'category' => 'Maecenas / Maecenas',
-                'model' => 'Pellentesque mollis felis vitae porta dapibus.',
-                'image' => 'http://www.example.com/porta_ipsum.jpg',
+                '@type'       => 'Product',
+                'name'        => 'Donec lorem metus, bibendum ut lacus et, bibendum luctus arcu.',
+                'category'    => 'Maecenas / Maecenas',
+                'model'       => 'Pellentesque mollis felis vitae porta dapibus.',
+                'image'       => 'http://www.example.com/porta_ipsum.jpg',
                 'description' => 'Duis tempor velit dui, vel tempor velit posuere eu. Suspendisse rhoncus rhoncus nisl, eu bibendum nunc pharetra at. Quisque dictum diam a tellus ultrices, eu blandit mi auctor.',
-                'sku' => '185359',
+                'sku'         => '185359',
             ],
         ]
     ];
@@ -61,14 +61,14 @@ class ProductAggregateOfferTest extends TestCase
         $context = $this->make();
 
         $this->assertEquals([
-            '@type' => 'AggregateOffer',
-            'priceCurrency' => 'USD',
-            'offerCount' => '3',
-            'lowPrice' => '109.99',
-            'highPrice' => '129.99',
+            '@type'           => 'AggregateOffer',
+            'priceCurrency'   => 'USD',
+            'offerCount'      => '3',
+            'lowPrice'        => '109.99',
+            'highPrice'       => '129.99',
             'priceValidUntil' => '2020-11-05',
-            'itemCondition' => 'http://schema.org/UsedCondition',
-            'availability' => 'http://schema.org/InStock'
+            'itemCondition'   => 'http://schema.org/UsedCondition',
+            'availability'    => 'http://schema.org/InStock'
         ], $context->getProperty('offers'));
     }
 }

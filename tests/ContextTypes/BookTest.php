@@ -11,46 +11,46 @@ class BookTest extends TestCase
     protected $class = Book::class;
 
     protected $attributes = [
-        'name' => 'The Title of Book',
-        'isbn' => '00000000',
-        'abridged' => false,
-        'bookEdition' => 'Library edition',
-        'bookFormat' => BookFormatType::PAPERBACK,
-        'numberOfPages' => '1234',
-        'datePublished' => '2013-10-04T00:00',
+        'name'            => 'The Title of Book',
+        'isbn'            => '00000000',
+        'abridged'        => false,
+        'bookEdition'     => 'Library edition',
+        'bookFormat'      => BookFormatType::PAPERBACK,
+        'numberOfPages'   => '1234',
+        'datePublished'   => '2013-10-04T00:00',
         'aggregateRating' => [
             'reviewCount' => 5,
             'ratingValue' => 5,
-            'bestRating' => 4,
+            'bestRating'  => 4,
             'worstRating' => 1,
             'ratingCount' => 4,
         ],
-        'author' => [
+        'author'          => [
             ['@type' => 'Person', 'name' => 'Joe Joe'],
             ['@type' => 'Person', 'name' => 'Jammy Joe'],
         ],
-        'image' => [
-            'url' => 'https://google.com/thumbnail1.jpg',
+        'image'           => [
+            'url'    => 'https://google.com/thumbnail1.jpg',
             'height' => 800,
-            'width' => 800
+            'width'  => 800
         ],
-        'publisher' => [
+        'publisher'       => [
             'name' => 'Google',
             'logo' => [
-                '@type' => 'ImageObject',
-                'url' => 'https://google.com/logo.jpg',
-                'width' => 600,
+                '@type'  => 'ImageObject',
+                'url'    => 'https://google.com/logo.jpg',
+                'width'  => 600,
                 'height' => 60,
             ]
         ],
-        'review' => [
+        'review'          => [
             ['@type' => 'Review', 'name' => 'first review', 'reviewRating' => 3],
             ['@type' => 'Review', 'name' => 'second review', 'reviewRating' => 5],
         ],
-        'video' => [
-            'url' => 'https://google.com/thumbnail1.mov',
+        'video'           => [
+            'url'    => 'https://google.com/thumbnail1.mov',
             'height' => 800,
-            'width' => 800
+            'width'  => 800
         ],
     ];
 
@@ -62,10 +62,10 @@ class BookTest extends TestCase
         $context = $this->make();
 
         $this->assertEquals([
-            '@type' => 'AggregateRating',
+            '@type'       => 'AggregateRating',
             'reviewCount' => 5,
             'ratingValue' => 5,
-            'bestRating' => 4,
+            'bestRating'  => 4,
             'worstRating' => 1,
             'ratingCount' => 4,
         ], $context->getProperty('aggregateRating'));
@@ -80,11 +80,11 @@ class BookTest extends TestCase
 
         $this->assertEquals([
             '@type' => 'Person',
-            'name' => 'Joe Joe',
+            'name'  => 'Joe Joe',
         ], $context->getProperty('author')[0]);
         $this->assertEquals([
             '@type' => 'Person',
-            'name' => 'Jammy Joe',
+            'name'  => 'Jammy Joe',
         ], $context->getProperty('author')[1]);
     }
 
@@ -96,10 +96,10 @@ class BookTest extends TestCase
         $context = $this->make();
 
         $this->assertEquals([
-            '@type' => 'ImageObject',
-            'url' => 'https://google.com/thumbnail1.jpg',
+            '@type'  => 'ImageObject',
+            'url'    => 'https://google.com/thumbnail1.jpg',
             'height' => 800,
-            'width' => 800,
+            'width'  => 800,
         ], $context->getProperty('image'));
     }
 
@@ -112,12 +112,12 @@ class BookTest extends TestCase
 
         $this->assertEquals([
             '@type' => 'Organization',
-            'name' => 'Google',
-            'logo' => [
-                '@type' => 'ImageObject',
-                'url' => 'https://google.com/logo.jpg',
+            'name'  => 'Google',
+            'logo'  => [
+                '@type'  => 'ImageObject',
+                'url'    => 'https://google.com/logo.jpg',
                 'height' => 60,
-                'width' => 600,
+                'width'  => 600,
             ],
         ], $context->getProperty('publisher'));
     }
@@ -130,13 +130,13 @@ class BookTest extends TestCase
         $context = $this->make();
 
         $this->assertEquals([
-            '@type' => 'Review',
-            'name' => 'first review',
+            '@type'        => 'Review',
+            'name'         => 'first review',
             'reviewRating' => 3
         ], $context->getProperty('review')[0]);
         $this->assertEquals([
-            '@type' => 'Review',
-            'name' => 'second review',
+            '@type'        => 'Review',
+            'name'         => 'second review',
             'reviewRating' => 5
         ], $context->getProperty('review')[1]);
     }
@@ -149,10 +149,10 @@ class BookTest extends TestCase
         $context = $this->make();
 
         $this->assertEquals([
-            '@type' => 'VideoObject',
-            'url' => 'https://google.com/thumbnail1.mov',
+            '@type'  => 'VideoObject',
+            'url'    => 'https://google.com/thumbnail1.mov',
             'height' => 800,
-            'width' => 800,
+            'width'  => 800,
         ], $context->getProperty('video'));
     }
 }

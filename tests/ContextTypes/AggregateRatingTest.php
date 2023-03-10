@@ -10,15 +10,15 @@ class AggregateRatingTest extends TestCase
     protected $class = AggregateRating::class;
 
     protected $attributes = [
-        'sameAs' => 'http://google.com/profile',
-        'reviewCount' => 5,
-        'ratingValue' => 2.4,
-        'bestRating' => 4.5,
-        'worstRating' => 1,
-        'ratingCount' => 4,
+        'sameAs'       => 'http://google.com/profile',
+        'reviewCount'  => 5,
+        'ratingValue'  => 2.4,
+        'bestRating'   => 4.5,
+        'worstRating'  => 1,
+        'ratingCount'  => 4,
         'itemReviewed' => [
             '@type' => 'Thing',
-            'name' => 'Fluff Hut',
+            'name'  => 'Fluff Hut',
         ],
     ];
 
@@ -30,14 +30,14 @@ class AggregateRatingTest extends TestCase
         $context = $this->make();
 
         $this->assertEquals(array_merge([
-            '@context' => 'http://schema.org',
-            '@type' => 'AggregateRating',
-            'name' => '',
-            'alternateName' => '',
-            'description' => '',
-            'image' => '',
+            '@context'         => 'http://schema.org',
+            '@type'            => 'AggregateRating',
+            'name'             => '',
+            'alternateName'    => '',
+            'description'      => '',
+            'image'            => '',
             'mainEntityOfPage' => '',
-            'url' => '',
+            'url'              => '',
         ], $this->attributes), $context->getProperties());
     }
 }

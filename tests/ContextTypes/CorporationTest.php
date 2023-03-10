@@ -11,15 +11,15 @@ class CorporationTest extends TestCase
     protected $class = Corporation::class;
 
     protected $attributes = [
-        'name' => 'Acme Corp.',
-        'url' => 'https://example.com',
-        'description' => 'Lorem ipsum dolor sit amet',
+        'name'         => 'Acme Corp.',
+        'url'          => 'https://example.com',
+        'description'  => 'Lorem ipsum dolor sit amet',
         'tickerSymbol' => 'ACME',
-        'address' => [
-            'streetAddress' => '1785 East Sahara Avenue, Suite 490-423',
+        'address'      => [
+            'streetAddress'   => '1785 East Sahara Avenue, Suite 490-423',
             'addressLocality' => 'Las Vegas',
-            'addressRegion' => 'NV',
-            'postalCode' => '89104',
+            'addressRegion'   => 'NV',
+            'postalCode'      => '89104',
         ],
     ];
 

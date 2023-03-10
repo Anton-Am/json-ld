@@ -10,23 +10,23 @@ class MusicPlaylistTest extends TestCase
     protected $class = MusicPlaylist::class;
 
     protected $attributes = [
-        'name' => 'magni dolores eo',
-        'url' => 'https://google.com/1-musicplaylist',
+        'name'      => 'magni dolores eo',
+        'url'       => 'https://google.com/1-musicplaylist',
         'numTracks' => 2,
-        'track' => [
+        'track'     => [
             [
-                '@type' => 'MusicRecording',
-                'name' => 'magni dolores eo',
-                'url' => 'https://google.com/1-musicrecording',
+                '@type'    => 'MusicRecording',
+                'name'     => 'magni dolores eo',
+                'url'      => 'https://google.com/1-musicrecording',
                 'duration' => 'PT1M33S', // 1 minute 33 seconds
-                'genre' => ['Ambient', 'Classical', 'Folk'],
+                'genre'    => ['Ambient', 'Classical', 'Folk'],
             ],
             [
-                '@type' => 'MusicRecording',
-                'name' => 'totam rem aperiam',
-                'url' => 'https://google.com/2-musicrecording',
+                '@type'    => 'MusicRecording',
+                'name'     => 'totam rem aperiam',
+                'url'      => 'https://google.com/2-musicrecording',
                 'duration' => 'PT3M33S', // 3 minute 33 seconds
-                'genre' => 'Classical',
+                'genre'    => 'Classical',
             ]
         ],
     ];
@@ -50,18 +50,18 @@ class MusicPlaylistTest extends TestCase
 
         $this->assertEquals([
             [
-                '@type' => 'MusicRecording',
-                '@id' => 'https://google.com/1-musicrecording',
-                'name' => 'magni dolores eo',
+                '@type'    => 'MusicRecording',
+                '@id'      => 'https://google.com/1-musicrecording',
+                'name'     => 'magni dolores eo',
                 'duration' => 'PT1M33S', // 1 minute 33 seconds
-                'genre' => 'Ambient, Classical, Folk',
+                'genre'    => 'Ambient, Classical, Folk',
             ],
             [
-                '@type' => 'MusicRecording',
-                '@id' => 'https://google.com/2-musicrecording',
-                'name' => 'totam rem aperiam',
+                '@type'    => 'MusicRecording',
+                '@id'      => 'https://google.com/2-musicrecording',
+                'name'     => 'totam rem aperiam',
                 'duration' => 'PT3M33S', // 3 minute 33 seconds
-                'genre' => 'Classical',
+                'genre'    => 'Classical',
             ],
         ], $context->getProperty('track'));
     }

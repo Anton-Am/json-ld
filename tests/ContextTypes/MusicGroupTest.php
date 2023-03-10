@@ -10,16 +10,16 @@ class MusicGroupTest extends TestCase
     protected $class = MusicGroup::class;
 
     protected $attributes = [
-        'name' => 'exercitation ullamco laboris nisi ut',
-        'url' => 'https://google.com/1-musicgroup',
+        'name'        => 'exercitation ullamco laboris nisi ut',
+        'url'         => 'https://google.com/1-musicgroup',
         'description' => 'Lorem ipsum dolor sit amet',
-        'track' => [
+        'track'       => [
             [
-                '@type' => 'MusicRecording',
-                'name' => 'magni dolores eo',
-                'url' => 'https://google.com/1-musicrecording',
+                '@type'    => 'MusicRecording',
+                'name'     => 'magni dolores eo',
+                'url'      => 'https://google.com/1-musicrecording',
                 'duration' => 'PT1M33S', // 1 minute 33 seconds
-                'genre' => ['Ambient', 'Classical', 'Folk'],
+                'genre'    => ['Ambient', 'Classical', 'Folk'],
             ]
         ],
     ];
@@ -53,11 +53,11 @@ class MusicGroupTest extends TestCase
 
         $this->assertEquals([
             [
-                '@type' => 'MusicRecording',
-                'name' => 'magni dolores eo',
-                '@id' => 'https://google.com/1-musicrecording',
+                '@type'    => 'MusicRecording',
+                'name'     => 'magni dolores eo',
+                '@id'      => 'https://google.com/1-musicrecording',
                 'duration' => 'PT1M33S', // 1 minute 33 seconds
-                'genre' => 'Ambient, Classical, Folk',
+                'genre'    => 'Ambient, Classical, Folk',
             ]
         ], $context->getProperty('track'));
     }

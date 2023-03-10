@@ -10,29 +10,29 @@ class MusicAlbumTest extends TestCase
     protected $class = MusicAlbum::class;
 
     protected $attributes = [
-        'name' => 'exercitation ullamco laboris nisi ut',
-        'url' => 'https://google.com/1-musicalbum',
+        'name'        => 'exercitation ullamco laboris nisi ut',
+        'url'         => 'https://google.com/1-musicalbum',
         'description' => 'Lorem ipsum dolor sit amet',
-        'numTracks' => 5,
-        'track' => [
+        'numTracks'   => 5,
+        'track'       => [
             [
-                '@type' => 'MusicRecording',
-                'url' => 'https://google.com/1-musicrecording',
-                'name' => 'magni dolores eo',
+                '@type'    => 'MusicRecording',
+                'url'      => 'https://google.com/1-musicrecording',
+                'name'     => 'magni dolores eo',
                 'duration' => 'PT1M33S', // 1 minute 33 seconds
-                'genre' => ['Ambient', 'Classical', 'Folk'],
+                'genre'    => ['Ambient', 'Classical', 'Folk'],
             ],
             [
-                '@type' => 'MusicRecording',
-                'url' => 'https://google.com/2-musicrecording',
-                'name' => 'totam rem aperiam',
+                '@type'    => 'MusicRecording',
+                'url'      => 'https://google.com/2-musicrecording',
+                'name'     => 'totam rem aperiam',
                 'duration' => 'PT3M33S', // 3 minute 33 seconds
-                'genre' => 'Classical',
+                'genre'    => 'Classical',
             ]
         ],
-        'byArtist' => [
-            'url' => 'https://google.com/1-musicgroup',
-            'name' => 'exercitation ullamco laboris nisi ut',
+        'byArtist'    => [
+            'url'         => 'https://google.com/1-musicgroup',
+            'name'        => 'exercitation ullamco laboris nisi ut',
             'description' => 'Lorem ipsum dolor sit amet',
         ],
     ];
@@ -66,18 +66,18 @@ class MusicAlbumTest extends TestCase
 
         $this->assertEquals([
             [
-                '@type' => 'MusicRecording',
-                '@id' => 'https://google.com/1-musicrecording',
-                'name' => 'magni dolores eo',
+                '@type'    => 'MusicRecording',
+                '@id'      => 'https://google.com/1-musicrecording',
+                'name'     => 'magni dolores eo',
                 'duration' => 'PT1M33S', // 1 minute 33 seconds
-                'genre' => 'Ambient, Classical, Folk',
+                'genre'    => 'Ambient, Classical, Folk',
             ],
             [
-                '@type' => 'MusicRecording',
-                '@id' => 'https://google.com/2-musicrecording',
-                'name' => 'totam rem aperiam',
+                '@type'    => 'MusicRecording',
+                '@id'      => 'https://google.com/2-musicrecording',
+                'name'     => 'totam rem aperiam',
                 'duration' => 'PT3M33S', // 3 minute 33 seconds
-                'genre' => 'Classical',
+                'genre'    => 'Classical',
             ],
         ], $context->getProperty('track'));
     }
@@ -90,9 +90,9 @@ class MusicAlbumTest extends TestCase
         $context = $this->make();
 
         $this->assertEquals([
-            '@type' => 'MusicGroup',
-            '@id' => 'https://google.com/1-musicgroup',
-            'name' => 'exercitation ullamco laboris nisi ut',
+            '@type'       => 'MusicGroup',
+            '@id'         => 'https://google.com/1-musicgroup',
+            'name'        => 'exercitation ullamco laboris nisi ut',
             'description' => 'Lorem ipsum dolor sit amet',
         ], $context->getProperty('byArtist'));
     }

@@ -10,12 +10,12 @@ class PersonSimpleAddressTest extends TestCase
     protected $class = Person::class;
 
     protected $attributes = [
-        'name' => 'Anonymous tester',
+        'name'             => 'Anonymous tester',
         'mainEntityOfPage' => [
             'url' => 'https://example.com/anonymous.html'
         ],
-        'additionalName' => 'phpUnit hacker',
-        'address' => 'rue de gauche'
+        'additionalName'   => 'phpUnit hacker',
+        'address'          => 'rue de gauche'
     ];
 
     /**
@@ -37,7 +37,7 @@ class PersonSimpleAddressTest extends TestCase
 
         $this->assertEquals([
             '@type' => 'WebPage',
-            '@id' => 'https://example.com/anonymous.html',
+            '@id'   => 'https://example.com/anonymous.html',
         ], $context->getProperty('mainEntityOfPage'));
     }
 

@@ -10,25 +10,25 @@ class EventTest extends TestCase
     protected $class = Event::class;
 
     protected $attributes = [
-        'name' => 'Apple Fest',
-        'startDate' => '2013-10-04T00:00',
-        'url' => 'https://google.com/events/22',
-        'offers' => [
+        'name'        => 'Apple Fest',
+        'startDate'   => '2013-10-04T00:00',
+        'url'         => 'https://google.com/events/22',
+        'offers'      => [
             [
-                'name' => 'Beer',
+                'name'  => 'Beer',
                 'price' => '4.99'
             ]
         ],
-        'location' => [
-            'name' => 'Fluff Hut',
+        'location'    => [
+            'name'    => 'Fluff Hut',
             'address' => [
-                'streetAddress' => '112 Apple St.',
+                'streetAddress'   => '112 Apple St.',
                 'addressLocality' => 'Hamden',
-                'addressRegion' => 'CT',
-                'postalCode' => '06514',
+                'addressRegion'   => 'CT',
+                'postalCode'      => '06514',
             ],
         ],
-        'image' => 'https://google.com/some_logo.png',
+        'image'       => 'https://google.com/some_logo.png',
         'description' => 'A description',
     ];
 
@@ -42,7 +42,7 @@ class EventTest extends TestCase
         $this->assertEquals([
             [
                 '@type' => 'Offer',
-                'name' => 'Beer',
+                'name'  => 'Beer',
                 'price' => '4.99'
             ]
         ], $context->getProperty('offers'));
@@ -56,14 +56,14 @@ class EventTest extends TestCase
         $context = $this->make();
 
         $this->assertEquals([
-            '@type' => 'Place',
-            'name' => 'Fluff Hut',
+            '@type'   => 'Place',
+            'name'    => 'Fluff Hut',
             'address' => [
-                '@type' => 'PostalAddress',
-                'streetAddress' => '112 Apple St.',
+                '@type'           => 'PostalAddress',
+                'streetAddress'   => '112 Apple St.',
                 'addressLocality' => 'Hamden',
-                'addressRegion' => 'CT',
-                'postalCode' => '06514',
+                'addressRegion'   => 'CT',
+                'postalCode'      => '06514',
             ],
         ], $context->getProperty('location'));
     }

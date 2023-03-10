@@ -11,7 +11,7 @@ class AbstractContextTest extends TestCase
 
     protected $attributes = [
         'sameAs' => 'http://google.com/profile',
-        'name' => 'My Profile Page',
+        'name'   => 'My Profile Page',
     ];
 
     /**
@@ -23,7 +23,7 @@ class AbstractContextTest extends TestCase
 
         $this->assertEquals(array_merge([
             '@context' => 'http://schema.org',
-            '@type' => 'ContextStub',
+            '@type'    => 'ContextStub',
         ], $this->attributes), $context->getProperties());
     }
 

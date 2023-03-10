@@ -10,52 +10,52 @@ class RecipeTest extends TestCase
     protected $class = Recipe::class;
 
     protected $attributes = [
-        'name' => 'Fried Sugar Egg',
-        'prepTime' => 'PT30M',
-        'cookTime' => 'PT1H',
-        'totalTime' => 'PT1H30M',
-        'image' => 'http://www.google.com/image.jpg',
-        'recipeCategory' => [
+        'name'               => 'Fried Sugar Egg',
+        'prepTime'           => 'PT30M',
+        'cookTime'           => 'PT1H',
+        'totalTime'          => 'PT1H30M',
+        'image'              => 'http://www.google.com/image.jpg',
+        'recipeCategory'     => [
             'christmas',
             'dinner',
             'soup',
         ],
-        'description' => 'Lorem ipsum dolor sit amet',
-        'recipeIngredient' => [
+        'description'        => 'Lorem ipsum dolor sit amet',
+        'recipeIngredient'   => [
             '1 egg',
             '2 gram of sugar',
         ],
         'recipeInstructions' => '1. work with eggs, 2. add suger, 3. done',
-        'recipeYield' => '30 packages',
-        'recipeCuisine' => 'American',
-        'author' => [
+        'recipeYield'        => '30 packages',
+        'recipeCuisine'      => 'American',
+        'author'             => [
             'givenName' => 'Peter',
         ],
-        'nutrition' => [
-            'calories' => '428 calories',
-            'fatContent' => '23g fat (8g saturated fat)',
-            'cholesterolContent' => '53mg cholesterol',
-            'sodiumContent' => '1146mg sodium',
+        'nutrition'          => [
+            'calories'            => '428 calories',
+            'fatContent'          => '23g fat (8g saturated fat)',
+            'cholesterolContent'  => '53mg cholesterol',
+            'sodiumContent'       => '1146mg sodium',
             'carbohydrateContent' => '33g carbohydrate (3g sugars',
-            'fiberContent' => '2g fiber',
-            'proteinContent' => '21g protein.',
+            'fiberContent'        => '2g fiber',
+            'proteinContent'      => '21g protein.',
         ],
-        'aggregateRating' => [
+        'aggregateRating'    => [
             'ratingValue' => 5,
             'reviewCount' => 5,
             'ratingCount' => 3,
         ],
-        'review' => [
+        'review'             => [
             [
-                'name' => 'first review',
+                'name'         => 'first review',
                 'reviewRating' => 3
             ],
             [
-                'name' => 'second review',
+                'name'         => 'second review',
                 'reviewRating' => 5
             ],
         ],
-        'video' => [
+        'video'              => [
             'url' => 'http://www.google.com',
         ]
     ];
@@ -79,7 +79,7 @@ class RecipeTest extends TestCase
         $this->assertEquals('428 calories', $nutrition['calories']);
 
         $this->assertEquals([
-            '@type' => 'AggregateRating',
+            '@type'       => 'AggregateRating',
             'ratingValue' => 5,
             'reviewCount' => 5,
             'ratingCount' => 3,

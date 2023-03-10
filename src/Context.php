@@ -2,10 +2,7 @@
 
 namespace AntonAm\JsonLD;
 
-use AntonAm\JsonLD\ContextTypes\BreadcrumbList;
-use AntonAm\JsonLD\ContextTypes\GeoCoordinates;
-use AntonAm\JsonLD\ContextTypes\LocalBusiness;
-use AntonAm\JsonLD\ContextTypes\PostalAddress;
+use AntonAm\JsonLD\ContextTypes\AbstractContext;
 use InvalidArgumentException;
 use AntonAm\JsonLD\Contracts\ContextTypeInterface;
 
@@ -16,15 +13,15 @@ class Context
      *
      * @var ContextTypeInterface
      */
-    protected $context = null;
+    protected $context;
 
     /**
      * Create a new Context instance
      *
      * @param string $context
-     * @param array  $data
+     * @param array $data
      */
-    public function __construct($context, array $data = [])
+    public function __construct(string $context, array $data = [])
     {
         $class = $this->getContextTypeClass($context);
 
@@ -35,11 +32,10 @@ class Context
      * Present given data as a JSON-LD object.
      *
      * @param string $context
-     * @param array  $data
-     *
+     * @param array $data
      * @return static
      */
-    public static function create($context, array $data = []): self
+    public static function create(string $context, array $data = []): self
     {
         return new self($context, $data);
     }
@@ -72,36 +68,14 @@ class Context
      * Return script tag.
      *
      * @param string $name
-     *
      * @return string|null
      * @throws InvalidArgumentException
      */
-    protected function getContextTypeClass($name): ?string
+    protected function getContextTypeClass(string $name): ?string
     {
         // Check for custom context type
-        if (class_exists($name)) {
+        if (class_exists($name) && is_a(new $name, AbstractContext::class)) {
             return $name;
-        }
-
-        // Create local context type class
-        $class = ucwords(str_replace(['-', '_'], ' ', $name));
-        $class = '\\AntonAm\\JsonLD\\ContextTypes\\' . str_replace(' ', '', $class);
-
-        // Check for local context type
-        if (class_exists($class)) {
-            return $class;
-        }
-
-        // Backwards compatible, remove in a future version
-        switch ($name) {
-            case 'address':
-                return PostalAddress::class;
-            case 'business':
-                return LocalBusiness::class;
-            case 'breadcrumbs':
-                return BreadcrumbList::class;
-            case 'geo':
-                return GeoCoordinates::class;
         }
 
         throw new InvalidArgumentException(sprintf('Undefined context type: "%s"', $name));

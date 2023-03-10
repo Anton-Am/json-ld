@@ -11,7 +11,7 @@ class ContactPointTest extends TestCase
     protected $class = ContactPoint::class;
 
     protected $attributes = [
-        'telephone' => '18009999999',
+        'telephone'   => '18009999999',
         'contactType' => 'customer service',
     ];
 

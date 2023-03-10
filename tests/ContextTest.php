@@ -3,6 +3,7 @@
 namespace AntonAm\JsonLD\Test;
 
 use AntonAm\JsonLD\Context;
+use AntonAm\JsonLD\ContextTypes\Event;
 use Mockery;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 
@@ -18,12 +19,12 @@ class ContextTest extends PHPUnitTestCase
      */
     public function shouldGetEventProperties()
     {
-        $context = Context::create('event', ['name' => 'Foo Bar']);
+        $context = Context::create(Event::class, ['name' => 'Foo Bar']);
 
         $this->assertEquals([
             '@context' => 'http://schema.org',
-            '@type' => 'Event',
-            'name' => 'Foo Bar',
+            '@type'    => 'Event',
+            'name'     => 'Foo Bar',
         ], $context->getProperties());
     }
 
@@ -32,8 +33,8 @@ class ContextTest extends PHPUnitTestCase
      */
     public function shouldAllowSameAsToBeArray()
     {
-        $context = Context::create('event', [
-            'name' => 'Foo Bar',
+        $context = Context::create(Event::class, [
+            'name'   => 'Foo Bar',
             'sameAs' => [
                 'https://google.com/facebook',
                 'https://google.com/instagram',
@@ -43,9 +44,9 @@ class ContextTest extends PHPUnitTestCase
 
         $this->assertEquals([
             '@context' => 'http://schema.org',
-            '@type' => 'Event',
-            'name' => 'Foo Bar',
-            'sameAs' => [
+            '@type'    => 'Event',
+            'name'     => 'Foo Bar',
+            'sameAs'   => [
                 'https://google.com/facebook',
                 'https://google.com/instagram',
                 'https://google.com/linkedin'
@@ -58,16 +59,16 @@ class ContextTest extends PHPUnitTestCase
      */
     public function shouldAllowSameAsToBeAString()
     {
-        $context = Context::create('event', [
-            'name' => 'Foo Bar',
+        $context = Context::create(Event::class, [
+            'name'   => 'Foo Bar',
             'sameAs' => 'https://google.com/facebook',
         ]);
 
         $this->assertEquals([
             '@context' => 'http://schema.org',
-            '@type' => 'Event',
-            'name' => 'Foo Bar',
-            'sameAs' => 'https://google.com/facebook',
+            '@type'    => 'Event',
+            'name'     => 'Foo Bar',
+            'sameAs'   => 'https://google.com/facebook',
         ], $context->getProperties());
     }
 
@@ -76,7 +77,7 @@ class ContextTest extends PHPUnitTestCase
      */
     public function shouldGenerateEventScriptTag()
     {
-        $context = Context::create('event', ['name' => 'Foo Bar']);
+        $context = Context::create(Event::class, ['name' => 'Foo Bar']);
 
         $this->assertEquals('<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"Event","name":"Foo Bar"}</script>', $context->generate());
     }

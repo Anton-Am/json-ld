@@ -10,18 +10,18 @@ class MusicRecordingTest extends TestCase
     protected $class = MusicRecording::class;
 
     protected $attributes = [
-        'name' => 'magni dolores eo',
-        'url' => 'https://google.com/1-musicrecording',
+        'name'     => 'magni dolores eo',
+        'url'      => 'https://google.com/1-musicrecording',
         'duration' => 'PT1M33S', // 1 minute 33 seconds
-        'genre' => ['Ambient', 'Classical', 'Folk'], // can also be a string
+        'genre'    => ['Ambient', 'Classical', 'Folk'], // can also be a string
         'byArtist' => [
-            'name' => 'exercitation ullamco laboris nisi ut',
-            'url' => 'https://google.com/1-musicgroup',
+            'name'        => 'exercitation ullamco laboris nisi ut',
+            'url'         => 'https://google.com/1-musicgroup',
             'description' => 'aliquam quaerat voluptatem.',
         ],
-        'inAlbum' => [
-            'name' => 'sed quia consequuntur',
-            'url' => 'https://google.com/1-musicalbum',
+        'inAlbum'  => [
+            'name'        => 'sed quia consequuntur',
+            'url'         => 'https://google.com/1-musicalbum',
             'description' => 'Lorem ipsum dolor sit amet',
         ],
     ];
@@ -65,9 +65,9 @@ class MusicRecordingTest extends TestCase
         $context = $this->make();
 
         $this->assertEquals([
-            '@type' => 'MusicGroup',
-            '@id' => 'https://google.com/1-musicgroup',
-            'name' => 'exercitation ullamco laboris nisi ut',
+            '@type'       => 'MusicGroup',
+            '@id'         => 'https://google.com/1-musicgroup',
+            'name'        => 'exercitation ullamco laboris nisi ut',
             'description' => 'aliquam quaerat voluptatem.',
         ], $context->getProperty('byArtist'));
     }
@@ -80,9 +80,9 @@ class MusicRecordingTest extends TestCase
         $context = $this->make();
 
         $this->assertEquals([
-            '@type' => 'MusicAlbum',
-            '@id' => 'https://google.com/1-musicalbum',
-            'name' => 'sed quia consequuntur',
+            '@type'       => 'MusicAlbum',
+            '@id'         => 'https://google.com/1-musicalbum',
+            'name'        => 'sed quia consequuntur',
             'description' => 'Lorem ipsum dolor sit amet',
         ], $context->getProperty('inAlbum'));
     }

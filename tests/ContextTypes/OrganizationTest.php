@@ -10,19 +10,19 @@ class OrganizationTest extends TestCase
     protected $class = Organization::class;
 
     protected $attributes = [
-        'name' => 'Said Organization',
-        'url' => 'https://google.com/organization/22',
-        'email' => 'info@nomail.com',
-        'address' => [
-            'streetAddress' => '112 Apple St.',
+        'name'         => 'Said Organization',
+        'url'          => 'https://google.com/organization/22',
+        'email'        => 'info@nomail.com',
+        'address'      => [
+            'streetAddress'   => '112 Apple St.',
             'addressLocality' => 'Hamden',
-            'addressRegion' => 'CT',
-            'postalCode' => '06514',
+            'addressRegion'   => 'CT',
+            'postalCode'      => '06514',
         ],
-        'logo' => 'https://google.com/thumbnail1.jpg',
+        'logo'         => 'https://google.com/thumbnail1.jpg',
         'contactPoint' => [
-            'email' => 'support@nomail.com',
-            'telephone' => '18009999999',
+            'email'       => 'support@nomail.com',
+            'telephone'   => '18009999999',
             'contactType' => 'customer service',
         ],
     ];
@@ -50,9 +50,9 @@ class OrganizationTest extends TestCase
         $context = $this->make();
 
         $this->assertEquals([
-            '@type' => 'ContactPoint',
-            'email' => 'support@nomail.com',
-            'telephone' => '18009999999',
+            '@type'       => 'ContactPoint',
+            'email'       => 'support@nomail.com',
+            'telephone'   => '18009999999',
             'contactType' => 'customer service',
         ], $context->getProperty('contactPoint'));
     }
@@ -65,11 +65,11 @@ class OrganizationTest extends TestCase
         $context = $this->make();
 
         $this->assertEquals([
-            '@type' => 'PostalAddress',
-            'streetAddress' => '112 Apple St.',
+            '@type'           => 'PostalAddress',
+            'streetAddress'   => '112 Apple St.',
             'addressLocality' => 'Hamden',
-            'addressRegion' => 'CT',
-            'postalCode' => '06514',
+            'addressRegion'   => 'CT',
+            'postalCode'      => '06514',
         ], $context->getProperty('address'));
     }
 }

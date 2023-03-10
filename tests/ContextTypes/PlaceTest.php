@@ -10,15 +10,15 @@ class PlaceTest extends TestCase
     protected $class = Place::class;
 
     protected $attributes = [
-        'name' => 'Fluff Hut',
+        'name'    => 'Fluff Hut',
         'address' => [
-            'streetAddress' => '112 Apple St.',
+            'streetAddress'   => '112 Apple St.',
             'addressLocality' => 'Hamden',
-            'addressRegion' => 'CT',
-            'postalCode' => '06514',
+            'addressRegion'   => 'CT',
+            'postalCode'      => '06514',
         ],
-        'review' => [
-            'reviewBody' => 'beautifull place',
+        'review'  => [
+            'reviewBody'   => 'beautifull place',
             'reviewRating' => 10,
         ],
     ];
@@ -31,19 +31,19 @@ class PlaceTest extends TestCase
         $this->assertPropertyEquals(
             'address',
             [
-                '@type' => 'PostalAddress',
-                'streetAddress' => '112 Apple St.',
+                '@type'           => 'PostalAddress',
+                'streetAddress'   => '112 Apple St.',
                 'addressLocality' => 'Hamden',
-                'addressRegion' => 'CT',
-                'postalCode' => '06514',
+                'addressRegion'   => 'CT',
+                'postalCode'      => '06514',
             ]
         );
 
         $this->assertPropertyEquals(
             'review',
             [
-                '@type' => 'Review',
-                'reviewBody' => 'beautifull place',
+                '@type'        => 'Review',
+                'reviewBody'   => 'beautifull place',
                 'reviewRating' => 10,
             ]
         );
