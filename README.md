@@ -222,7 +222,8 @@ echo $context; // Will output the script tag
 
 ```php
 use AntonAm\JsonLD\Context;
-use App\JsonLD\FooBar;
+use AntonAm\JsonLD\ContextTypes\WebSite;
+use AntonAm\JsonLD\ContextTypes\BreadcrumbList;
 
 $context =  MultiContext::create([
     [
