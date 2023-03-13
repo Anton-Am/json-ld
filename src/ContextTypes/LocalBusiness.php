@@ -14,16 +14,15 @@ class LocalBusiness extends Organization
      */
     protected $structure = [
         'openingHours' => null,
-        'priceRange' => null,
-        'geo' => GeoCoordinates::class, //Property of Place
-        'hasMap' => null, //Property of Place
+        'priceRange'   => null,
+        'geo'          => GeoCoordinates::class,
+        'hasMap'       => null,
     ];
 
     /**
      * Set the opening hours of the business.
      *
      * @param mixed $items
-     *
      * @return mixed
      */
     protected function setOpeningHoursAttribute($items)

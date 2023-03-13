@@ -13,8 +13,8 @@ class ContactPoint extends Thing
      * @var array
      */
     protected $structure = [
-        'telephone' => null,
+        'telephone'   => null,
         'contactType' => null,
-        'email' => null,
+        'email'       => null,
     ];
 }

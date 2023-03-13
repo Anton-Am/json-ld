@@ -13,9 +13,9 @@ class VideoObject extends MediaObject
      * @var array
      */
     protected $structure = [
-        'actor' => Person::class,
-        'director' => Person::class,
-        'caption' => null,
+        'actor'     => Person::class,
+        'director'  => Person::class,
+        'caption'   => null,
         'thumbnail' => ImageObject::class,
     ];
 }

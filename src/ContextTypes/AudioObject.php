@@ -13,7 +13,7 @@ class AudioObject extends MediaObject
      * @var array
      */
     protected $structure = [
-        'caption' => MediaObject::class,
+        'caption'    => MediaObject::class,
         'transcript' => null,
     ];
 }

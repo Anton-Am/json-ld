@@ -11,7 +11,7 @@ class QuantitativeValue extends Thing
      * Property structure
      *
      * @var array
-     * @uses \AntonAm\JsonLD\ContextTypes\JobPosting unitText [HOUR || DAY || WEEK || MONTH || YEAR]
+     * @uses JobPosting unitText [HOUR || DAY || WEEK || MONTH || YEAR]
      */
     protected $structure = [
         'maxValue' => null,

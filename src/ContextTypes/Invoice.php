@@ -14,9 +14,9 @@ class Invoice extends Thing
      */
     protected $structure = [
         'totalPaymentDue' => PriceSpecification::class,
-        'provider' => Organization::class,
-        'paymentDueDate' => null,
-        'paymentStatus' => null,
+        'provider'        => Organization::class,
+        'paymentDueDate'  => null,
+        'paymentStatus'   => null,
         'referencesOrder' => Order::class
     ];
 }

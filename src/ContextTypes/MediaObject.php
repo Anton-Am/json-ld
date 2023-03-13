@@ -10,7 +10,6 @@ use DateTime;
  * may have many media objects associated with it on the same web page.
  * For example, a page about a single song (MusicRecording) may have a music
  * video (VideoObject), and a high and low bandwidth audio stream (2 AudioObject's).
- *
  * https://schema.org/MediaObject
  */
 class MediaObject extends CreativeWork
@@ -21,23 +20,23 @@ class MediaObject extends CreativeWork
      * @var array
      */
     protected $structure = [
-        'associatedArticle' => NewsArticle::class,
-        'bitrate' => null,
-        'contentSize' => null,
-        'contentUrl' => null,
-        'duration' => Duration::class,
-        'embedUrl' => null,
-        'encodesCreativeWork' => CreativeWork::class,
-        'encodingFormat' => null,
-        'endTime' => null,
-        'height' => QuantitativeValue::class,
-        'playerType' => null,
-        'productionCompany' => Organization::class,
-        'regionsAllowed' => Place::class,
+        'associatedArticle'    => NewsArticle::class,
+        'bitrate'              => null,
+        'contentSize'          => null,
+        'contentUrl'           => null,
+        'duration'             => Duration::class,
+        'embedUrl'             => null,
+        'encodesCreativeWork'  => CreativeWork::class,
+        'encodingFormat'       => null,
+        'endTime'              => null,
+        'height'               => QuantitativeValue::class,
+        'playerType'           => null,
+        'productionCompany'    => Organization::class,
+        'regionsAllowed'       => Place::class,
         'requiresSubscription' => null,
-        'startTime' => DateTime::class,
-        'thumbnailUrl' => null,
-        'uploadDate' => DateTime::class,
-        'width' => QuantitativeValue::class,
+        'startTime'            => DateTime::class,
+        'thumbnailUrl'         => null,
+        'uploadDate'           => DateTime::class,
+        'width'                => QuantitativeValue::class,
     ];
 }

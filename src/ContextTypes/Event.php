@@ -14,8 +14,8 @@ class Event extends Thing
      */
     protected $structure = [
         'startDate' => null,
-        'endDate' => null,
-        'offers' => Offer::class,
-        'location' => Place::class,
+        'endDate'   => null,
+        'offers'    => Offer::class,
+        'location'  => Place::class,
     ];
 }

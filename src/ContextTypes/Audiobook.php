@@ -14,6 +14,6 @@ class Audiobook extends AudioObject
      */
     protected $structure = [
         'duration' => Duration::class,
-        'readBy' => Person::class,
+        'readBy'   => Person::class,
     ];
 }

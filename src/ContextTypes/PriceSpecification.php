@@ -13,7 +13,7 @@ class PriceSpecification extends Thing
      * @var array
      */
     protected $structure = [
-        'price' => null,
+        'price'         => null,
         'priceCurrency' => null,
     ];
 }

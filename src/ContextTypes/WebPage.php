@@ -13,7 +13,7 @@ class WebPage extends CreativeWork
      * @var array
      */
     protected $structure = [
-        '@id' => null, //Not an official attribute
+        '@id' => null,
     ];
 
     /**

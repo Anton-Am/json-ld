@@ -13,7 +13,7 @@ class GeoCoordinates extends Thing
      * @var array
      */
     protected $structure = [
-        'latitude' => '',
+        'latitude'  => '',
         'longitude' => '',
     ];
 }

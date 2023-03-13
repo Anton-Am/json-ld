@@ -13,15 +13,15 @@ class Offer extends Thing
      * @var array
      */
     protected $structure = [
-        'itemOffered' => Product::class,
-        'price' => null,
-        'priceCurrency' => null,
-        'priceValidUntil' => null,
-        'itemCondition' => null,
-        'availability' => null,
+        'itemOffered'      => Product::class,
+        'price'            => null,
+        'priceCurrency'    => null,
+        'priceValidUntil'  => null,
+        'itemCondition'    => null,
+        'availability'     => null,
         'eligibleQuantity' => QuantitativeValue::class,
-        'category' => null,
-        'validFrom' => null,
-        'seller' => Organization::class,
+        'category'         => null,
+        'validFrom'        => null,
+        'seller'           => Organization::class,
     ];
 }

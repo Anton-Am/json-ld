@@ -13,7 +13,7 @@ class SearchBox extends AbstractContext
      * @var array
      */
     protected $structure = [
-        'url' => null,
+        'url'             => null,
         'potentialAction' => null,
     ];
 
@@ -29,7 +29,6 @@ class SearchBox extends AbstractContext
      * Set potential action.
      *
      * @param array $properties
-     *
      * @return array
      */
     protected function setPotentialActionAttribute(array $properties): array

@@ -13,12 +13,12 @@ class MusicRecording extends MusicAbstractContext
      * @var array
      */
     protected $structure = [
-        'duration' => null,
-        'genre' => null,
+        'duration'    => null,
+        'genre'       => null,
         'description' => null,
-        'byArtist' => MusicGroup::class,
-        'inAlbum' => MusicAlbum::class,
-        'inPlaylist' => MusicPlaylist::class,
-        'isrcCode' => null,
+        'byArtist'    => MusicGroup::class,
+        'inAlbum'     => MusicAlbum::class,
+        'inPlaylist'  => MusicPlaylist::class,
+        'isrcCode'    => null,
     ];
 }

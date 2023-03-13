@@ -14,7 +14,7 @@ class MusicGroup extends MusicAbstractContext
      */
     protected $structure = [
         'description' => null,
-        'track' => MusicRecording::class,
-        'image' => ImageObject::class,
+        'track'       => MusicRecording::class,
+        'image'       => ImageObject::class,
     ];
 }

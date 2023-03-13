@@ -4,16 +4,10 @@ namespace AntonAm\JsonLD;
 
 use AntonAm\JsonLD\ContextTypes\AbstractContext;
 use InvalidArgumentException;
-use AntonAm\JsonLD\Contracts\ContextTypeInterface;
 
 class Context
 {
-    /**
-     * Context type
-     *
-     * @var ContextTypeInterface
-     */
-    protected $context;
+    protected AbstractContext $context;
 
     /**
      * Create a new Context instance

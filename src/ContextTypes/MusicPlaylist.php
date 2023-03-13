@@ -14,6 +14,6 @@ class MusicPlaylist extends MusicAbstractContext
      */
     protected $structure = [
         'numTracks' => null,
-        'track' => MusicRecording::class,
+        'track'     => MusicRecording::class,
     ];
 }

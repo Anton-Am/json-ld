@@ -40,7 +40,7 @@ class WebSiteTest extends TestCase
         $context = $this->make();
 
         $attributesPlus = array_merge([
-            '@context'             => 'http://schema.org',
+            '@context'             => 'https://schema.org',
             '@type'                => 'WebSite',
             'aggregateRating'      => '',
             'alternativeHeadline'  => '',
@@ -57,6 +57,8 @@ class WebSiteTest extends TestCase
             'alternateName'        => '',
             'description'          => '',
             'mainEntityOfPage'     => '',
+            'potentialAction'      => '',
+            'identifier'           => ''
         ], $this->attributes);
 
         $attributesPlus["publisher"]["@type"] = 'Organization';

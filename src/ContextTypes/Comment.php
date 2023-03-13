@@ -14,6 +14,6 @@ class Comment extends CreativeWork
      */
     protected $structure = [
         'downvoteCount' => null,
-        'upvoteCount' => null,
+        'upvoteCount'   => null,
     ];
 }

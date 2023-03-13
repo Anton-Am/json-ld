@@ -13,12 +13,12 @@ class NutritionInformation extends Thing
      * @var array
      */
     protected $structure = [
-        'calories' => null,
-        'fatContent' => null,
-        'cholesterolContent' => null,
-        'sodiumContent' => null,
+        'calories'            => null,
+        'fatContent'          => null,
+        'cholesterolContent'  => null,
+        'sodiumContent'       => null,
         'carbohydrateContent' => null,
-        'fiberContent' => null,
-        'proteinContent' => null,
+        'fiberContent'        => null,
+        'proteinContent'      => null,
     ];
 }

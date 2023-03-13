@@ -13,7 +13,7 @@ class HowTo extends CreativeWork
      * @var array
      */
     protected $structure = [
-        'prepTime' => null,
+        'prepTime'  => null,
         'totalTime' => null,
     ];
 }

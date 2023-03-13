@@ -10,8 +10,8 @@ class AggregateOffer extends Offer
      * @var array
      */
     protected $structure = [
-        'highPrice' => null,
-        'lowPrice' => null,
+        'highPrice'  => null,
+        'lowPrice'   => null,
         'offerCount' => null,
     ];
 }

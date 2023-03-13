@@ -14,10 +14,10 @@ class MusicAlbum extends MusicAbstractContext
      */
     protected $structure = [
         'description' => null,
-        'numTracks' => null,
-        'byArtist' => MusicGroup::class,
-        'genre' => null,
-        'track' => MusicRecording::class,
-        'image' => ImageObject::class,
+        'numTracks'   => null,
+        'byArtist'    => MusicGroup::class,
+        'genre'       => null,
+        'track'       => MusicRecording::class,
+        'image'       => ImageObject::class,
     ];
 }

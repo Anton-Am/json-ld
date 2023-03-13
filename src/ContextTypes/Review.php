@@ -15,7 +15,7 @@ class Review extends CreativeWork
     protected $structure = [
         'itemReviewed' => Thing::class,
         'reviewRating' => Rating::class,
-        'reviewBody' => null,
-        'duration' => Duration::class, //Not an official attribute
+        'reviewBody'   => null,
+        'duration'     => Duration::class,
     ];
 }

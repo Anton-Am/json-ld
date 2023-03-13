@@ -28,8 +28,8 @@ class ProductAggregateOfferTest extends TestCase
             'highPrice'       => '129.99',
             'priceCurrency'   => 'USD',
             'priceValidUntil' => '2020-11-05',
-            'itemCondition'   => 'http://schema.org/UsedCondition',
-            'availability'    => 'http://schema.org/InStock',
+            'itemCondition'   => 'https://schema.org/UsedCondition',
+            'availability'    => 'https://schema.org/InStock',
         ],
         'isSimilarTo'     => [
             [
@@ -67,8 +67,8 @@ class ProductAggregateOfferTest extends TestCase
             'lowPrice'        => '109.99',
             'highPrice'       => '129.99',
             'priceValidUntil' => '2020-11-05',
-            'itemCondition'   => 'http://schema.org/UsedCondition',
-            'availability'    => 'http://schema.org/InStock'
+            'itemCondition'   => 'https://schema.org/UsedCondition',
+            'availability'    => 'https://schema.org/InStock'
         ], $context->getProperty('offers'));
     }
 }

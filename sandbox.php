@@ -24,7 +24,7 @@ echo '== WebSite ==' . PHP_EOL .
             'query-input' => 'required name=search_term_string'
         ]
     ])
-    . PHP_EOL . '== /WebSite ==' . PHP_EOL;
+    . PHP_EOL . '== /WebSite ==' . PHP_EOL . PHP_EOL;
 
 echo '== Person ==' . PHP_EOL .
     Context::create(Person::class, [
@@ -60,7 +60,7 @@ echo '== Person ==' . PHP_EOL .
             ]
         ]
     ])
-    . PHP_EOL . '== /Person ==' . PHP_EOL;
+    . PHP_EOL . '== /Person ==' . PHP_EOL . PHP_EOL;
 
 
 echo '== Organization ==' . PHP_EOL .
@@ -73,7 +73,7 @@ echo '== Organization ==' . PHP_EOL .
             'https://t.me/your-company'
         ]
     ])
-    . PHP_EOL . '== /Organization ==' . PHP_EOL;
+    . PHP_EOL . '== /Organization ==' . PHP_EOL . PHP_EOL;
 
 
 echo '== JobPosting ==' . PHP_EOL .
@@ -122,7 +122,7 @@ echo '== JobPosting ==' . PHP_EOL .
         ],
         'experienceRequirements'        => 'Requirements details'
     ])
-    . PHP_EOL . '== /JobPosting ==' . PHP_EOL;
+    . PHP_EOL . '== /JobPosting ==' . PHP_EOL . PHP_EOL;
 
 
 echo '== Article ==' . PHP_EOL .
@@ -149,7 +149,7 @@ echo '== Article ==' . PHP_EOL .
         'dateModified'     => '2023-04-03',
         'keywords'         => 'seo sales b2b'
     ])
-    . PHP_EOL . '== /Article ==' . PHP_EOL;
+    . PHP_EOL . '== /Article ==' . PHP_EOL . PHP_EOL;
 
 echo '== BlogPosting ==' . PHP_EOL .
     Context::create(BlogPosting::class, [
@@ -175,7 +175,7 @@ echo '== BlogPosting ==' . PHP_EOL .
         'datePublished'    => '2023-03-03',
         'dateModified'     => '2023-04-03',
     ])
-    . PHP_EOL . '== /BlogPosting ==' . PHP_EOL;
+    . PHP_EOL . '== /BlogPosting ==' . PHP_EOL . PHP_EOL;
 
 echo '== BreadcrumbList ==' . PHP_EOL .
     Context::create(BreadcrumbList::class, [
@@ -194,4 +194,50 @@ echo '== BreadcrumbList ==' . PHP_EOL .
             ]
         ]
     ])
-    . PHP_EOL . '== /BreadcrumbList ==' . PHP_EOL;
+    . PHP_EOL . '== /BreadcrumbList ==' . PHP_EOL . PHP_EOL;
+
+
+$context = [
+    [
+        'context' => WebSite::class,
+        'data'    => [
+            'name'            => 'Google',
+            'url'             => 'https://google.com/',
+            'potentialAction' => [
+                'target'      => 'https://google.com/results?q={search_term_string}',
+                'query'       => 'required name=search_term_string',
+                'query-input' => 'required name=search_term_string'
+            ]
+        ]
+    ],
+    [
+        'context' => BreadcrumbList::class,
+        'data'    => [
+            'itemListElement' => [
+                [
+                    'name' => 'Main',
+                    'url'  => 'https://google.com'
+                ],
+                [
+                    'name' => 'Section',
+                    'url'  => 'https://google.com/section'
+                ],
+                [
+                    'name' => 'Article title',
+                    'url'  => 'https://google.com/section/article'
+                ]
+            ]
+        ]
+    ]
+];
+echo '== Multiple Context Graph ==' . PHP_EOL .
+    MultiContext::create($context)
+    . PHP_EOL . '== /Multiple Context Graph ==' . PHP_EOL . PHP_EOL;
+
+echo '== Multiple Context Array ==' . PHP_EOL .
+    MultiContext::create($context, MultiContext::TYPE_ARRAY)
+    . PHP_EOL . '== /Multiple Context Array ==' . PHP_EOL . PHP_EOL;
+
+echo '== Multiple Context Scripts ==' . PHP_EOL .
+    MultiContext::create($context, MultiContext::TYPE_SCRIPTS)
+    . '== /Multiple Context Scripts ==' . PHP_EOL . PHP_EOL;

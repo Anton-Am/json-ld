@@ -13,8 +13,8 @@ class AggregateRating extends Rating
      * @var array
      */
     protected $structure = [
-        'reviewCount' => null,
-        'ratingCount' => null,
+        'reviewCount'  => null,
+        'ratingCount'  => null,
         'itemReviewed' => Thing::class,
     ];
 }

@@ -13,12 +13,12 @@ class Recipe extends HowTo
      * @var array
      */
     protected $structure = [
-        'cookTime' => null,
-        'recipeCategory' => null,
-        'recipeIngredient' => null,
+        'cookTime'           => null,
+        'recipeCategory'     => null,
+        'recipeIngredient'   => null,
         'recipeInstructions' => null,
-        'recipeYield' => null,
-        'recipeCuisine' => null,
-        'nutrition' => NutritionInformation::class,
+        'recipeYield'        => null,
+        'recipeCuisine'      => null,
+        'nutrition'          => NutritionInformation::class,
     ];
 }

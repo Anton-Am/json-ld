@@ -26,8 +26,8 @@ class ProductTest extends TestCase
             'price'           => '119.99',
             'priceCurrency'   => 'USD',
             'priceValidUntil' => '2020-11-05',
-            'itemCondition'   => 'http://schema.org/UsedCondition',
-            'availability'    => 'http://schema.org/InStock',
+            'itemCondition'   => 'https://schema.org/UsedCondition',
+            'availability'    => 'https://schema.org/InStock',
         ],
         'isSimilarTo'     => [
             [
@@ -77,8 +77,8 @@ class ProductTest extends TestCase
             'priceCurrency'   => 'USD',
             'price'           => '119.99',
             'priceValidUntil' => '2020-11-05',
-            'itemCondition'   => 'http://schema.org/UsedCondition',
-            'availability'    => 'http://schema.org/InStock'
+            'itemCondition'   => 'https://schema.org/UsedCondition',
+            'availability'    => 'https://schema.org/InStock'
         ], $context->getProperty('offers'));
     }
 

@@ -14,7 +14,7 @@ class Rating extends Thing
      */
     protected $structure = [
         'ratingValue' => null,
-        'bestRating' => null,  // Required if the rating system is not on a 5-point scale
-        'worstRating' => null, // Required if the rating system is not on a 5-point scale
+        'bestRating'  => null,
+        'worstRating' => null,
     ];
 }

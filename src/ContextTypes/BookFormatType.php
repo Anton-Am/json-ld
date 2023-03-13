@@ -13,38 +13,38 @@ class BookFormatType extends Enumeration
      * bookFormat property. There is also a type 'Audiobook' in the bib
      * extension which includes Audiobook specific properties.
      *
-     * @see http://schema.org/AudiobookFormat
+     * @see https://schema.org/AudiobookFormat
      */
-    const AUDIOBOOK = 'http://schema.org/AudiobookFormat';
+    public const AUDIOBOOK = 'https://schema.org/AudiobookFormat';
 
     /**
      * Book format: Ebook.
      *
-     * @see http://schema.org/EBook
+     * @see https://schema.org/EBook
      */
-    const EBOOK = 'http://schema.org/EBook';
+    public const EBOOK = 'https://schema.org/EBook';
 
     /**
      * Book format: GraphicNovel. May represent a bound collection of
      * ComicIssue instances.
      *
-     * @see http://schema.org/GraphicNovel
+     * @see https://schema.org/GraphicNovel
      */
-    const GRAPHIC_NOVEL = "https://schema.org/GraphicNovel";
+    public const GRAPHIC_NOVEL = "https://schema.org/GraphicNovel";
 
     /**
      * Book format: Hardcover.
      *
-     * @see http://schema.org/Hardcover
+     * @see https://schema.org/Hardcover
      */
-    const HARDCOVER = 'http://schema.org/Hardcover';
+    public const HARDCOVER = 'https://schema.org/Hardcover';
 
     /**
      * Book format: Paperback.
      *
-     * @see http://schema.org/Paperback
+     * @see https://schema.org/Paperback
      */
-    const PAPERBACK = 'http://schema.org/Paperback';
+    public const PAPERBACK = 'https://schema.org/Paperback';
 
     /**
      * Property structure

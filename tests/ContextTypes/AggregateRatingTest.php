@@ -30,7 +30,7 @@ class AggregateRatingTest extends TestCase
         $context = $this->make();
 
         $this->assertEquals(array_merge([
-            '@context'         => 'http://schema.org',
+            '@context'         => 'https://schema.org',
             '@type'            => 'AggregateRating',
             'name'             => '',
             'alternateName'    => '',
@@ -38,6 +38,7 @@ class AggregateRatingTest extends TestCase
             'image'            => '',
             'mainEntityOfPage' => '',
             'url'              => '',
+            'identifier'       => ''
         ], $this->attributes), $context->getProperties());
     }
 }

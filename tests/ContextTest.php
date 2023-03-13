@@ -22,7 +22,7 @@ class ContextTest extends PHPUnitTestCase
         $context = Context::create(Event::class, ['name' => 'Foo Bar']);
 
         $this->assertEquals([
-            '@context' => 'http://schema.org',
+            '@context' => 'https://schema.org',
             '@type'    => 'Event',
             'name'     => 'Foo Bar',
         ], $context->getProperties());
@@ -43,7 +43,7 @@ class ContextTest extends PHPUnitTestCase
         ]);
 
         $this->assertEquals([
-            '@context' => 'http://schema.org',
+            '@context' => 'https://schema.org',
             '@type'    => 'Event',
             'name'     => 'Foo Bar',
             'sameAs'   => [
@@ -65,7 +65,7 @@ class ContextTest extends PHPUnitTestCase
         ]);
 
         $this->assertEquals([
-            '@context' => 'http://schema.org',
+            '@context' => 'https://schema.org',
             '@type'    => 'Event',
             'name'     => 'Foo Bar',
             'sameAs'   => 'https://google.com/facebook',
@@ -79,6 +79,6 @@ class ContextTest extends PHPUnitTestCase
     {
         $context = Context::create(Event::class, ['name' => 'Foo Bar']);
 
-        $this->assertEquals('<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"Event","name":"Foo Bar"}</script>', $context->generate());
+        $this->assertEquals('<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Event","name":"Foo Bar"}</script>', $context->generate());
     }
 }

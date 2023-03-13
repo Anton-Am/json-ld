@@ -22,7 +22,7 @@ class AbstractContextTest extends TestCase
         $context = $this->make();
 
         $this->assertEquals(array_merge([
-            '@context' => 'http://schema.org',
+            '@context' => 'https://schema.org',
             '@type'    => 'ContextStub',
         ], $this->attributes), $context->getProperties());
     }
@@ -36,7 +36,7 @@ class AbstractContextTest extends TestCase
 
         $properties = $context->getProperties();
 
-        $this->assertEquals('http://schema.org', $properties['@context']);
+        $this->assertEquals('https://schema.org', $properties['@context']);
     }
 
     /**
