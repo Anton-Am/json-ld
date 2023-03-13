@@ -85,16 +85,21 @@ class MultiContext
         return '';
     }
 
-    /**
-     * @return string
-     * @throws JsonException
-     */
-    public function __toString(): string
+    public function generate(): string
     {
         return match ($this->type) {
             self::TYPE_ARRAY => $this->generateArray(),
             self::TYPE_SCRIPTS => $this->generateScripts(),
             default => $this->generateGraph(),
         };
+    }
+
+    /**
+     * @return string
+     * @throws JsonException
+     */
+    public function __toString(): string
+    {
+        return $this->generate();
     }
 }

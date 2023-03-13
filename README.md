@@ -1,12 +1,17 @@
 # JSON-LD Generator
 
-[![Latest Stable Version](http://poser.pugx.org/anton-am/json-ld/v)](https://packagist.org/packages/anton-am/json-ld) 
-[![Total Downloads](http://poser.pugx.org/anton-am/json-ld/downloads)](https://packagist.org/packages/anton-am/json-ld) 
-[![Latest Unstable Version](http://poser.pugx.org/anton-am/json-ld/v/unstable)](https://packagist.org/packages/anton-am/json-ld) 
-[![License](http://poser.pugx.org/anton-am/json-ld/license)](https://packagist.org/packages/anton-am/json-ld) 
+[![Latest Stable Version](http://poser.pugx.org/anton-am/json-ld/v)](https://packagist.org/packages/anton-am/json-ld)
+[![Total Downloads](http://poser.pugx.org/anton-am/json-ld/downloads)](https://packagist.org/packages/anton-am/json-ld)
+[![Latest Unstable Version](http://poser.pugx.org/anton-am/json-ld/v/unstable)](https://packagist.org/packages/anton-am/json-ld)
+[![License](http://poser.pugx.org/anton-am/json-ld/license)](https://packagist.org/packages/anton-am/json-ld)
 [![PHP Version Require](http://poser.pugx.org/anton-am/json-ld/require/php)](https://packagist.org/packages/anton-am/json-ld)
 
 Extremely simple JSON-LD generator.
+
+## Dependencies
+
+* PHP 8.0 or higher
+* JSON extension
 
 ## Installation
 
@@ -19,55 +24,31 @@ From the command line run
 $ composer require anton-am/json-ld
 ```
 
+or add to your composer.json
+
+```
+"anton-am/json-ld": "^1.0.0"
+```
+
 ## Methods
 
- **/JsonLd/Context.php**
+**/JsonLd/Context.php**
 
- - `create($context, array $data = [])`
- - `getProperties()`
- - `generate()`
+- `create($context, array $data = [])`
+- `getProperties()`
+- `generate()`
+
+**/JsonLd/MultiContext.php**
+
+- `create(array $contextList, int $type = self::TYPE_GRAPH)`
+- `generateScripts()`
+- `generateArray()`
+- `generateGraph()`
+- `generate()`
 
 ## Context Type Classes
 
-- Article
-- Audiobook
-- Beach
-- BlogPosting
-- Book
-- BreadcrumbList
-- ContactPoint
-- Corporation
-- CreativeWork
-- Duration
-- Event
-- GeoCoordinates
-- ImageObject
-- Invoice
-- ListItem
-- LocalBusiness
-- MediaObject
-- MusicAlbum
-- MusicGroup
-- MusicPlaylist
-- MusicRecording
-- NewsArticle
-- Offer
-- Order
-- Organization
-- Person
-- Place
-- PostalAddress
-- PriceSpecification
-- Product
-- Rating
-- Recipe
-- Review
-- Sculpture
-- SearchBox
-- Thing
-- VideoObject
-- WebPage
-- WebSite
+All currently available context types can be found in the [ContextTypes directory](src/ContextTypes)
 
 ## Examples
 
@@ -136,7 +117,8 @@ echo $context; // Will output the script tag
 
 ### Using the JSON-LD in a Laracasts Presenter
 
-Even though this example shows using the JSON-LD inside of a `Laracasts\Presenter` presenter, Laravel is not required for this package.
+Even though this example shows using the JSON-LD inside a `Laracasts\Presenter` presenter, Laravel is not required
+for this package.
 
 #### /App/Presenters/BusinessPresenter.php
 
@@ -180,15 +162,16 @@ class BusinessPresenter extends Presenter
 
 #### Generate the Tags
 
-The generator comes with a `__toString` method that will automatically generate the correct script tags when displayed as a string.
+The generator comes with a `__toString` method that will automatically generate the correct script tags when displayed
+as a string.
 
-**Inside of a Laravel View**
+**Inside a Laravel View**
 
 ```php
 echo $business->present()->jsonLd();
 ```
 
-**Inside of a Laravel View**
+**Inside a Laravel View**
 
 ```
 {!! $business->present()->jsonLd() !!}
@@ -196,12 +179,13 @@ echo $business->present()->jsonLd();
 
 ## Custom Context Type
 
-The first argument for the `create($context, array $data = [])` method also accepts class names. This is helpful for custom context types.
+The first argument for the `create($context, array $data = [])` method also accepts class names. This is helpful for
+custom context types.
 
 ```php
 <?php
 
-namespace App\JsonLD;
+namespace App\AntonAm\JsonLD;
 
 use AntonAm\JsonLD\ContextTypes\AbstractContext;
 
@@ -228,7 +212,50 @@ use App\JsonLD\FooBar;
 $context = Context::create(FooBar::class, [
     'name' => 'Foo Foo headline',
     'description' => 'Bar bar article description',
-    'url' => 'http://google.com',
+    'url' => 'https://google.com',
+]);
+
+echo $context; // Will output the script tag
+```
+
+## Multiple Context
+
+```php
+use AntonAm\JsonLD\Context;
+use App\JsonLD\FooBar;
+
+$context =  MultiContext::create([
+    [
+        'context' => WebSite::class,
+        'data'    => [
+            'name'            => 'Google',
+            'url'             => 'https://google.com/',
+            'potentialAction' => [
+                'target'      => 'https://google.com/results?q={search_term_string}',
+                'query'       => 'required name=search_term_string',
+                'query-input' => 'required name=search_term_string'
+            ]
+        ]
+    ],
+    [
+        'context' => BreadcrumbList::class,
+        'data'    => [
+            'itemListElement' => [
+                [
+                    'name' => 'Main',
+                    'url'  => 'https://google.com'
+                ],
+                [
+                    'name' => 'Section',
+                    'url'  => 'https://google.com/section'
+                ],
+                [
+                    'name' => 'Article title',
+                    'url'  => 'https://google.com/section/article'
+                ]
+            ]
+        ]
+    ]
 ]);
 
 echo $context; // Will output the script tag
